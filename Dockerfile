@@ -1,5 +1,5 @@
 # Use uma imagem base com Java 17
-FROM adoptopenjdk:17-jre-hotspot
+FROM openjdk:17-jdk-slim
 
 # Instale o Maven
 RUN apt-get update && apt-get install -y maven

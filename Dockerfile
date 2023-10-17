@@ -1,5 +1,5 @@
 # Use uma imagem base que contenha o Java (por exemplo, openjdk)
-FROM openjdk:17-jdk-slim
+FROM maven:3.8.4-jdk-17
 
 # Defina o diretório de trabalho
 WORKDIR /app

@@ -1,14 +1,18 @@
-# Use a imagem base do OpenJDK para Java 11
+# Use uma imagem base que contenha o Java (por exemplo, openjdk)
 FROM openjdk:17-jdk-slim
 
-# Diretório de trabalho dentro do contêiner
+# Defina o diretório de trabalho
 WORKDIR /app
 
-# Copie o arquivo JAR do seu aplicativo (assumindo que ele está no diretório target) para o contêiner
-COPY ./target/todolist-1.0.0.jar /app/app.jar
+# Copie o arquivo pom.xml e o arquivo src para o contêiner
+COPY pom.xml .
+COPY src/ ./src/
 
-# Exponha a porta 8080
+# Execute o comando Maven para compilar e empacotar o aplicativo
+RUN mvn clean package
+
+# Exponha a porta em que o aplicativo Java será executado (substitua pela porta correta)
 EXPOSE 8080
 
-# Comando para executar o aplicativo quando o contêiner for iniciado
-CMD ["java", "-jar", "app.jar"]
+# Comando para iniciar a aplicação Java (substitua pelo comando correto)
+CMD ["java", "-jar", "target/todolist-1.0.0.jar"]

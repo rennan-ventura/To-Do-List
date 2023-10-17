@@ -9,7 +9,7 @@ COPY . .
 RUN apt-get update
 RUN apt-get install maven -y
 # Execute o comando Maven para compilar e empacotar o aplicativo
-RUN mvn clean install
+RUN mvn spring-boot:run
 
 # Exponha a porta em que o aplicativo Java será executado (substitua pela porta correta)
 EXPOSE 8080

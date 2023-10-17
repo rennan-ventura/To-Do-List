@@ -6,10 +6,10 @@ WORKDIR /app
 
 # Copie o arquivo pom.xml e o arquivo src para o contêiner
 COPY . .
-RUN apt-get update -y
+RUN apt-get update
 RUN apt-get install maven -y
 # Execute o comando Maven para compilar e empacotar o aplicativo
-RUN mvn clean package
+RUN mvn clean install
 
 # Exponha a porta em que o aplicativo Java será executado (substitua pela porta correta)
 EXPOSE 8080

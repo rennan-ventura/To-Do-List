@@ -5,7 +5,6 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copie o arquivo pom.xml e o arquivo src para o contêiner
-COPY pom.xml .
 COPY . .
 
 # Execute o comando Maven para compilar e empacotar o aplicativo

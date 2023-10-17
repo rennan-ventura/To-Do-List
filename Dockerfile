@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Copie o arquivo pom.xml e o arquivo src para o contêiner
 COPY pom.xml .
-COPY src/ ./src/
+COPY . .
 
 # Execute o comando Maven para compilar e empacotar o aplicativo
 RUN mvn clean package

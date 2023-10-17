@@ -1,5 +1,5 @@
 # Use uma imagem base com Java 17
-FROM maven:3.8.4-jdk-17
+FROM openjdk:17-jdk-slim
 
 # Instale o Maven
 RUN apt-get update && apt-get install -y maven

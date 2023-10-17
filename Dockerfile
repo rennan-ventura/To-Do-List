@@ -1,16 +1,16 @@
-# Use uma imagem base que contenha o Java (por exemplo, openjdk)
-FROM maven:3.8.4-jdk-17
+# Use uma imagem base com Java 17
+FROM adoptopenjdk:17-jre-hotspot
+
+# Instale o Maven
+RUN apt-get update && apt-get install -y maven
 
 # Defina o diretório de trabalho
 WORKDIR /app
 
 # Copie o arquivo pom.xml e o arquivo src para o contêiner
 COPY . .
-RUN apt-get update
-RUN apt-get install maven -y
 # Execute o comando Maven para compilar e empacotar o aplicativo
-RUN mvn clean build
-
+RUN mvn clean package
 # Exponha a porta em que o aplicativo Java será executado (substitua pela porta correta)
 EXPOSE 8080
 
